@@ -1,0 +1,145 @@
+html{
+    background-color: #99CCFF;
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 3%;
+    color: rgb(29, 72, 227);
+}
+
+img {
+    height: 100px;
+    width: 100px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.header_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title{
+    margin-left: 50px;
+}
+
+.checkout-button {
+    padding: 10px 20px;
+    background-color: #368ddf;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 50px;
+    transform: scale(1.5);
+}
+
+.subject-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+}
+
+.subject-box {
+    width: 25%;
+    height: 370px;
+    border: 5px solid #6699CC;
+    border-radius: 10%;
+    text-align: center;
+    font-size: 20px;
+    margin: 10px 2% 10px 2%;
+    background-color: #CCFFFF;
+    float: left;
+}
+
+/* .subject-box:nth-child(2) {
+    margin: 0 auto; 
+} */
+
+.button,
+.checkout,
+.disabled,
+.valid {
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 15px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.button:hover,
+.checkout:hover {
+    background-color: #0056b3;
+}
+
+.disabled {
+    background-color: #ff0000;
+    cursor: not-allowed;
+}
+
+.valid {
+    background-color: #2cf733;
+}
+
+.form-container {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #CCFFFF;
+    border: 5px solid #6699CC;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.form-container h2 {
+    color: rgb(29, 72, 227);
+}
+
+.form-container label {
+    display: block;
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.form-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background-color: #0056b3;
+    color: #fff;
+}
+
+.form-container .disabled {
+    background-color: #ff0000;
+    cursor: not-allowed;
+}
+
+.form-container .valid {
+    background-color: #2cf733;
+    color: #fff;
+}

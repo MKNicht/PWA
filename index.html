@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@2.7.8/dist/vue.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="manifest" href="lessons.webmanifest">
+    <title>Coursework 1</title>
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <div class="container">
+                <div class="header_container">
+                    <h1 class="title" v-text="sitename"></h1>
+                    <a href="#" class="checkout-button" @click.prevent="toggleView">Toggle View</a>
+                </div>
+            </div>
+        </header>
+
+        <div v-if="showSubject" class="subject_container">
+            <div>
+                <button @click="sort('subject')">Sort by Subject</button>
+                <button @click="sort('location')">Sort by Location</button>
+                <button @click="sort('price')">Sort by Price</button>
+                <button @click="sort('available')">Sort by Available</button>
+            </div>
+
+            <div class="subject-box" v-for="subject in subjects" :key="subject.id">
+                <figure>
+                    <img v-bind:src="subject.image">
+                </figure>
+                <h3 v-text="subject.subject"></h3>
+                <p>Location: {{subject.location}}</p>
+                <p>Price: {{subject.price}}</p>
+                <p>Available: {{subject.available}}</p>
+                <button class="button" v-on:click="add(subject)" v-if="checking(subject)">Add to cart</button>
+                <button class="disabled" v-else>Add to cart</button>
+            </div>
+        </div>
+
+        <div v-else class="form-container">
+            <h2>Checkout Form</h2>
+            <form @submit.prevent="submitForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" v-model="name" @input="validateName" required>
+        
+                <label for="phone">Number:</label>
+                <input type="tel" id="phone" v-model="phone" @input="validatePhone" required>
+        
+                <button type="submit" :class="{ 'disabled': !isFormValid, 'valid': isFormValid }">Submit</button>
+            </form>
+
+            <ul>
+                <li v-for="item in cart" :key="item.id">
+                    {{ item.name }} - ${{ item.price }} - Quantity: {{ item.quantity }}
+                    <button @click="decreaseQuantity(item)">-1</button>
+                    <button @click="removeProduct(item)">Remove</button>
+                </li>
+            </ul>
+            
+            <div>
+                Total Quantity: {{ totalQuantity }}
+                <br>
+                Total Price: £{{ totalPrice }}
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
