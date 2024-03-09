@@ -28,6 +28,15 @@ self.addEventListener("install", function (e) {
     );
 });
 
+self.addEventListener('fetch', function(event) {
+    event.respondWith(
+        caches.match(event.request).then(function(response) {
+            // 返回緩存中的匹配文件，或者如果沒有匹配，則發起一個網絡請求
+            return response || fetch(event.request);
+        })
+    );
+});
+
 self.addEventListener('fetch', function (e) {
     e.respondWith(
         caches.match(e.request).then(function (cachedFile) {
@@ -46,3 +55,4 @@ self.addEventListener('fetch', function (e) {
         })
     );
 });
+
